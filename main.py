@@ -1,55 +1,72 @@
 """Programatically create a BigQuery table from a CSV."""
+from os import listdir
+from os.path import isfile, join
+from random import randint
 from google.cloud import storage
-from google.cloud import bigquery
-from config import bucketURI, bucketName, bigqueryDataset, bigqueryTable, localDataFile, destinationBlobName
-import pprint
+from config import bucketURI, bucketName, localFolder, bucketFolder
 
 
-def storage_upload_blob(bucketName, source_file_name, destinationBlobName):
-    """Upload a CSV to Google Cloud Storage."""
+def upload_files(bucketName):
+    """Upload files to bucket."""
+    files = [f for f in listdir(localFolder) if isfile(join(localFolder, f))]
+    print(files)
     storage_client = storage.Client()
     bucket = storage_client.get_bucket(bucketName)
-    blob = bucket.blob(destinationBlobName)
-    blob.upload_from_filename(source_file_name)
-    return 'File {} uploaded to {}.'.format(source_file_name,
-                                            destinationBlobName)
+    for file in files:
+        localFile = localFolder + file
+        blob = bucket.blob(bucketFolder + file)
+        blob.upload_from_filename(localFile)
+    return f'Uploaded {files} to "{bucketName}" bucket.'
 
 
-def bigquery_insert_data(bucketURI, destinationBlobName, dataset_id, table_id):
-    """Insert CSV from Google Storage to BigQuery Table."""
-    target = bucketURI + destinationBlobName
-    bigquery_client = bigquery.Client()
-    dataset_ref = bigquery_client.dataset(dataset_id)
-    job_config = bigquery.LoadJobConfig()
-    job_config.autodetect = True
-    job_config.skip_leading_rows = 1
-    job_config.source_format = bigquery.SourceFormat.CSV
-    load_job = bigquery_client.load_table_from_uri(target,
-                                                   dataset_ref.table(table_id),
-                                                   job_config=job_config)
-    print('Starting job {}'.format(load_job.job_id))
-    load_job.result()  # Waits for table load to complete.
-    return 'Job finished.'
+def list_files(bucketName):
+    """List all files in bucket."""
+    storage_client = storage.Client()
+    bucket = storage_client.get_bucket(bucketName)
+    files = bucket.list_blobs(prefix=bucketFolder)
+    fileList = [file.name for file in files if '.' in file.name]
+    print('fileList:', fileList)
+    return fileList
 
 
-def get_table_schema(dataset_id, table_id):
-    """Get BigQuery Table Schema."""
-    bigquery_client = bigquery.Client()
-    dataset_ref = bigquery_client.dataset(dataset_id)
-    bg_tableref = bigquery.table.TableReference(dataset_ref, table_id)
-    bg_table = bigquery_client.get_table(bg_tableref)
-    # Print Schema to Console
-    pp = pprint.PrettyPrinter(indent=4)
-    pp.pprint(bg_table.schema)
-    return bg_table.schema
+def download_random_file(bucketURI, bucketName, bucketFolder):
+    """Get random file from bucket."""
+    storage_client = storage.Client()
+    bucket = storage_client.get_bucket(bucketName)
+    fileList = list_files(bucketName)
+    rand = randint(0, len(fileList) - 1)
+    blob = bucket.blob(fileList[rand])
+    fileName = blob.name.split('/')[-1]
+    blob.download_to_filename('./files/' + fileName)
+    return fileName
 
 
-storage_upload_blob(bucketName,
-                    localDataFile,
-                    destinationBlobName)
-bigquery_insert_data(bucketURI,
-                     destinationBlobName,
-                     bigqueryDataset,
-                     bigqueryTable)
-bigqueryTableSchema = get_table_schema(bigqueryDataset,
-                                       bigqueryTable)
+def delete_file(bucketName, bucketFolder, fileName):
+    """Delete file from bucket."""
+    storage_client = storage.Client()
+    bucket = storage_client.get_bucket(bucketName)
+    bucket.delete_blob(bucketFolder + fileName)
+    return f'{fileName} deleted from bucket.'
+
+
+def rename_file(bucketName, bucketFolder, fileName, newFileName):
+    """Delete file from bucket."""
+    storage_client = storage.Client()
+    bucket = storage_client.get_bucket(bucketName)
+    bucket.rename_blob(bucketFolder + fileName,
+                       new_name=newFileName)
+    return f'{fileName} renamed to {newFileName}.'
+
+
+print(upload_files(bucketName))
+print(list_files(bucketName))
+print(download_random_file(bucketURI,
+                           bucketName,
+                           bucketFolder))
+print(rename_file(bucketName,
+                  bucketFolder,
+                  'test.csv',
+                  'sample_test.csv'))
+print(delete_file(bucketName,
+                  bucketFolder,
+                  'sample_text.txt'))

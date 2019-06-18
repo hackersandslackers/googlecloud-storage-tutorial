@@ -7,8 +7,6 @@ verify_ssl = true
 
 [packages]
 google-cloud-storage = "*"
-google-cloud-bigquery = "*"
-pprint = "*"
 
 [requires]
 python_version = "3.7"
