@@ -1,9 +1,9 @@
-"""BigQuery Upload Configuration."""
+"""Google Cloud Storage Configuration."""
 from os import environ
 
 
 # Google Cloud Storage
-bucketURI = environ.get('GCP_BUCKET_URI')
+bucketURL = environ.get('GCP_BUCKET_URL')
 bucketName = environ.get('GCP_BUCKET_NAME')
 bucketFolder = environ.get('GCP_BUCKET_FOLDER_NAME')
 
