@@ -12,7 +12,7 @@ pprint==0.1
 protobuf==3.8.0
 pyasn1==0.4.5
 pyasn1-modules==0.2.5
-pytz==2019.1
+pytz==2019.3
 requests==2.22.0
 rsa==4.0
 six==1.12.0
