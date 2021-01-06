@@ -1,6 +1,6 @@
 cachetools==3.1.1
 certifi==2019.11.28
-chardet==3.0.4
+chardet==4.0.0
 google-api-core==1.22.1
 google-auth==1.6.3
 google-cloud-core==1.0.2
