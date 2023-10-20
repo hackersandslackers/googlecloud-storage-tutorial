@@ -2,7 +2,7 @@ cachetools==3.1.1
 certifi==2023.7.22
 chardet==3.0.4
 google-api-core==2.12.0
-google-auth==1.6.3
+google-auth==1.35.0
 google-cloud-core==1.0.2
 google-cloud-storage==1.44.0
 google-resumable-media==0.3.2
