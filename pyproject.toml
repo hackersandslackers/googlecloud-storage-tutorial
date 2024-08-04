@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "googlecloud_storage_tutorial"
+version = "0.0.1"
+description = "Tutorial for interacting with Google Cloud Storage via the Python SDK."
+authors = ["Todd Birchard <todd@hackersandslackers.com>"]
+maintainers = ["Todd Birchard <todd@hackersandslackers.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://hackersandslackers.com/cdn-google-cloud/"
+repository = "https://github.com/hackersandslackers/googlecloud-storage-tutorial/"
+documentation = "https://hackersandslackers.com/cdn-google-cloud/"
+keywords = ["Google Cloud Storage", "GCP", "Cloud Storage", "Tutorial"]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<4.0"
+google-cloud-storage = "*"
+pytest = "*"
+black = "*"
+isort = "*"
+flake8 = "*"
+gunicorn = "*"
+poetry-plugin-export = "^1.8.0"
+
+[tool.poetry.scripts]
+run = "main:init_script"
+
+[tool.poetry.urls]
+issues = "https://github.com/hackersandslackers/googlecloud-storage-tutorial/issues"
+
+[build-system]
+requires = ["poetry-core>=1.5.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pylint.'MESSAGES CONTROL']
+disable = "C0103,C0301,W0703,W0621"
+
+[tool.black]
+line-length = 120

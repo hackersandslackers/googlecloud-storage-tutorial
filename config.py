@@ -1,11 +1,10 @@
 """Google Cloud Storage Configuration."""
 from os import environ
 
-
 # Google Cloud Storage
-bucketURL = environ.get('GCP_BUCKET_URL')
-bucketName = environ.get('GCP_BUCKET_NAME')
-bucketFolder = environ.get('GCP_BUCKET_FOLDER_NAME')
+bucket_url = environ.get("GCP_BUCKET_URL")
+bucket_name = environ.get("GCP_BUCKET_NAME")
+bucket_dir = environ.get("GCP_BUCKET_FOLDER_NAME")
 
 # Data
-localFolder = environ.get('LOCAL_FOLDER')
+local_dir = environ.get("LOCAL_FOLDER")
