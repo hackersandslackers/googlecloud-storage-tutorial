@@ -11,7 +11,7 @@ colorama==0.4.6 ; python_version >= "3.10" and python_version < "4.0" and (sys_p
 crashtest==0.4.1 ; python_version >= "3.10" and python_version < "4.0"
 cryptography==43.0.0 ; python_version >= "3.10" and python_version < "4.0" and sys_platform == "linux"
 distlib==0.3.8 ; python_version >= "3.10" and python_version < "4.0"
-dulwich==0.21.7 ; python_version >= "3.10" and python_version < "4.0"
+dulwich==0.22.1 ; python_version >= "3.10" and python_version < "4.0"
 exceptiongroup==1.2.2 ; python_version >= "3.10" and python_version < "3.11"
 fastjsonschema==2.20.0 ; python_version >= "3.10" and python_version < "4.0"
 filelock==3.15.4 ; python_version >= "3.10" and python_version < "4.0"
