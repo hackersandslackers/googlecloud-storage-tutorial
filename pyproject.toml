@@ -20,6 +20,8 @@ isort = "*"
 flake8 = "*"
 gunicorn = "*"
 poetry-plugin-export = "^1.8.0"
+faker = "^26.2.0"
+python-dotenv = "^1.0.1"
 
 [tool.poetry.scripts]
 run = "main:init_script"

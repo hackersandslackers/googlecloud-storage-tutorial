@@ -13,18 +13,25 @@ Source for the accompanying tutorial here: [https://hackersandslackers.com/googl
 
 ## Getting Started
 
-Installation is recommended via Makefile
+Get set up locally in two steps:
+
+### Environment Variables
+
+Replace the values in **.env.example** with your values and rename this file to **.env**:
+
+* `GCP_BUCKET_URL`: URL of your Google Cloud Storage bucket.
+* `GCP_BUCKET_NAME`: Name of your Google Cloud Storage bucket.
+* `GCP_BUCKET_FOLDER_NAME`: Directory within your bucket to store and modify files.
+* `GOOGLE_APPLICATION_CREDENTIALS`: Path to your Google Cloud Platform service account key file.
+
+### Installation
+
+Get up and running with `make run`:
 
 ```shell
-$ git clone https://github.com/hackersandslackers/googlecloud-storage-tutorial.git
-$ cd googlecloud-storage-tutorial
-$ make install
-```
-
-### Usage
-
-```shell
-$ make run
+git clone https://github.com/hackersandslackers/googlecloud-storage-tutorial.git
+cd googlecloud-storage-tutorial
+make run
 ```
 
 -----

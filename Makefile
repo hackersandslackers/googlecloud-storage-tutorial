@@ -35,7 +35,7 @@ $(VIRTUAL_ENV):
 
 .PHONY: run
 run: env
-	$(LOCAL_PYTHON) -m main:init_script
+	$(LOCAL_PYTHON) -m main
 
 
 .PHONY: install

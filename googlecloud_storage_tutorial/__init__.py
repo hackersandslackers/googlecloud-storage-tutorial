@@ -1,5 +1,8 @@
 """Initialize script demonstration"""
-from config import bucket_dir, bucket_name, local_dir
+
+from faker import Faker
+
+from config import BUCKET_DIR, BUCKET_NAME, LOCAL_DIR
 from googlecloud_storage_tutorial.storage import (
     delete_file,
     download_random_file,
@@ -8,10 +11,14 @@ from googlecloud_storage_tutorial.storage import (
     upload_files,
 )
 
+fake = Faker()
+
 
 def init_script():
-    print(upload_files(bucket_name))
-    print(list_files(bucket_name))
-    print(download_random_file(bucket_name, bucket_dir, local_dir))
-    print(rename_file(bucket_name, bucket_dir, "test.csv", "sample_test.csv"))
-    print(delete_file(bucket_name, bucket_dir, "sample_text.txt"))
+    """Initialize script demonstration."""
+    print(upload_files(BUCKET_NAME, BUCKET_DIR, LOCAL_DIR))
+    print(list_files())
+    print(download_random_file(LOCAL_DIR))
+    print(rename_file(fake.unique.first_name()))
+    print(delete_file(BUCKET_NAME))
+    upload_files(BUCKET_NAME, BUCKET_DIR, LOCAL_DIR)
