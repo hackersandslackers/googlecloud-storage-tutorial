@@ -1,4 +1,4 @@
-"""Initialize script demonstration"""
+"""Initialize script."""
 
 from faker import Faker
 
@@ -11,6 +11,7 @@ from googlecloud_storage_tutorial.storage import (
     upload_files,
 )
 
+# Using the `faker` library to generate random strings
 fake = Faker()
 
 
