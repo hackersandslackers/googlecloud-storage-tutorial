@@ -7,7 +7,7 @@
 [![GitHub Stars](https://img.shields.io/github/stars/toddbirchard/tableau-extraction.svg?style=flat-square&colorB=ebcb8b&colorA=4c566a)](https://github.com/hackersandslackers/googlecloud-storage-tutorial/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/toddbirchard/tableau-extraction.svg?style=flat-square&colorA=4c566a&colorB=ebcb8b)](https://github.com/hackersandslackers/googlecloud-storage-tutorial/network)
 
-![Google Cloud Storage Python SDK Tutorial](https://storage.googleapis.com/hackersandslackers-cdn/2019/06/gcp-cloudstorage@2x.jpg)
+![Google Cloud Storage Python SDK Tutorial](./.github/gcpcloudstorage@2x.jpg)
 
 Source for the accompanying tutorial here: [https://hackersandslackers.com/google-cloud-storage-with-python/](https://hackersandslackers.com/google-cloud-storage-with-python/)
 
