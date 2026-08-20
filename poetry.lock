@@ -1257,6 +1257,20 @@ files = [
 ]
 
 [[package]]
+name = "pygments"
+version = "2.21.0"
+description = "Pygments is a syntax highlighting package written in Python."
+optional = false
+python-versions = ">=3.9"
+files = [
+    {file = "pygments-2.21.0-py3-none-any.whl", hash = "sha256:2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9"},
+    {file = "pygments-2.21.0.tar.gz", hash = "sha256:610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"},
+]
+
+[package.extras]
+windows-terminal = ["colorama (>=0.4.6)"]
+
+[[package]]
 name = "pyproject-hooks"
 version = "1.1.0"
 description = "Wrappers to call pyproject.toml-based build backend hooks."
@@ -1269,25 +1283,26 @@ files = [
 
 [[package]]
 name = "pytest"
-version = "8.3.2"
+version = "9.1.1"
 description = "pytest: simple powerful testing with Python"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.10"
 files = [
-    {file = "pytest-8.3.2-py3-none-any.whl", hash = "sha256:4ba08f9ae7dcf84ded419494d229b48d0903ea6407b030eaec46df5e6a73bba5"},
-    {file = "pytest-8.3.2.tar.gz", hash = "sha256:c132345d12ce551242c87269de812483f5bcc87cdbb4722e48487ba194f9fdce"},
+    {file = "pytest-9.1.1-py3-none-any.whl", hash = "sha256:37a86b45efb9a47a61a36449063e8e18d0cab3161329fc099eb21783169c4f0c"},
+    {file = "pytest-9.1.1.tar.gz", hash = "sha256:1088fbde8f2b49d95a549a195707afa7a76a3ce9bcadc26b6d71f0ffda5fe313"},
 ]
 
 [package.dependencies]
-colorama = {version = "*", markers = "sys_platform == \"win32\""}
-exceptiongroup = {version = ">=1.0.0rc8", markers = "python_version < \"3.11\""}
-iniconfig = "*"
-packaging = "*"
+colorama = {version = ">=0.4", markers = "sys_platform == \"win32\""}
+exceptiongroup = {version = ">=1", markers = "python_version < \"3.11\""}
+iniconfig = ">=1.0.1"
+packaging = ">=22"
 pluggy = ">=1.5,<2"
+pygments = ">=2.7.2"
 tomli = {version = ">=1", markers = "python_version < \"3.11\""}
 
 [package.extras]
-dev = ["argcomplete", "attrs (>=19.2)", "hypothesis (>=3.56)", "mock", "pygments (>=2.7.2)", "requests", "setuptools", "xmlschema"]
+dev = ["argcomplete", "attrs (>=19.2)", "hypothesis (>=3.56)", "mock", "requests", "setuptools", "xmlschema"]
 
 [[package]]
 name = "python-dateutil"
