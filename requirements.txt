@@ -49,7 +49,7 @@ poetry==1.8.3 ; python_version >= "3.10" and python_version < "4.0"
 proto-plus==1.24.0 ; python_version >= "3.10" and python_version < "4.0"
 protobuf==5.27.3 ; python_version >= "3.10" and python_version < "4.0"
 ptyprocess==0.7.0 ; python_version >= "3.10" and python_version < "4.0"
-pyasn1-modules==0.4.0 ; python_version >= "3.10" and python_version < "4.0"
+pyasn1-modules==0.4.2 ; python_version >= "3.10" and python_version < "4.0"
 pyasn1==0.6.0 ; python_version >= "3.10" and python_version < "4.0"
 pycodestyle==2.12.1 ; python_version >= "3.10" and python_version < "4.0"
 pycparser==2.22 ; python_version >= "3.10" and python_version < "4.0" and (sys_platform == "darwin" or sys_platform == "linux") and (sys_platform == "darwin" or platform_python_implementation != "PyPy")
